@@ -16,6 +16,6 @@ namespace GoldSavings.App.Services
         public double GetAveragePrice()
         {
             return _goldPrices.Average(p => p.Price);
-        }
+        }       
     }
 }

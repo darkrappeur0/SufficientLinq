@@ -15,6 +15,8 @@ class Program
         DateTime endDate = DateTime.Now;
         List<GoldPrice> goldPrices = dataService.GetGoldPrices(startDate, endDate).GetAwaiter().GetResult();
 
+        
+
         if (goldPrices.Count == 0)
         {
             Console.WriteLine("No data found. Exiting.");
@@ -22,7 +24,13 @@ class Program
         }
 
         Console.WriteLine($"Retrieved {goldPrices.Count} records. Ready for analysis.");
+        //1)Select prices from gold OrderBy ASC LIMITS 3 Union Select prices from gold OrderBy DESC Limits 3;
+        var Higherprices = _goldPrices.OrderByAscending(p=>p.prices).Take(3).Union(_goldPrices.OrderByDescending(p=>p.prices).Take(3));
 
+        // 2) Select date from gold where 
+
+
+        //3)
         // Step 2: Perform analysis
         GoldAnalysisService analysisService = new GoldAnalysisService(goldPrices);
         var avgPrice = analysisService.GetAveragePrice();
