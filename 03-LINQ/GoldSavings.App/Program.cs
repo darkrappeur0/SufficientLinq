@@ -1,6 +1,7 @@
 ﻿using GoldSavings.App.Model;
 using GoldSavings.App.Client;
 using GoldSavings.App.Services;
+using System.Security.AccessControl;
 namespace GoldSavings.App;
 
 class Program
@@ -25,8 +26,11 @@ class Program
 
         Console.WriteLine($"Retrieved {goldPrices.Count} records. Ready for analysis.");
         //1)Select prices from gold OrderBy ASC LIMITS 3 Union Select prices from gold OrderBy DESC Limits 3;
-        var Higherprices = _goldPrices.OrderByAscending(p=>p.prices).Take(3).Union(_goldPrices.OrderByDescending(p=>p.prices).Take(3));
-
+        var higherPrices = goldPrices.OrderBy(p => p.Price).Take(3);
+        var lowerPrices = goldPrices.OrderByDescending(p => p.Price).Take(3);
+        
+    Console.WriteLine($"Here are the 3 lowest prices: {string.Join(", ", higherPrices.Select(p => p.Price))}");
+    Console.WriteLine($"Here are the 3 highest prices: {string.Join(", ", lowerPrices.Select(p => p.Price))}");
         // 2) Select date from gold where 
 
 
