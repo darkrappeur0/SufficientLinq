@@ -141,11 +141,11 @@ class Program
 
         var highestprice = combinedGoldPricesAllminus2019.Where(p => p.Date > cheapestprice.Date).OrderByDescending(p => p.Price).First();
 
-        double rateofinterest = ( (highestprice.Price-cheapestprice.Price)/cheapestprice.Price  )*100;
+        double returnofinterest = ( (highestprice.Price-cheapestprice.Price)/cheapestprice.Price  )*100;
         
-        Console.WriteLine($"Best time to buy: {cheapestprice.Date.ToShortDateString()} at {cheapestprice.Price}");
-        Console.WriteLine($"Best time to sell: {highestprice.Date.ToShortDateString()} at {highestprice.Price}");
-        Console.WriteLine($"Return on Investment (ROI): {rateofinterest:F2}%");
+        Console.WriteLine($"Cheapest price at: {cheapestprice.Price} when : {cheapestprice.Date.ToShortDateString()} ");
+        Console.WriteLine($"Highest price to sell: {highestprice.Price} when : {highestprice.Date.ToShortDateString()}");
+        Console.WriteLine($"Return on Investment : {returnofinterest:F2}%");
 
         #endregion
         Console.WriteLine("\nGold Analyis Queries with LINQ Completed.");
