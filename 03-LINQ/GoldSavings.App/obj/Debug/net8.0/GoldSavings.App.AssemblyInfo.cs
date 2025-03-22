@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GoldSavings.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10ae2e0af5d023350642501f2c1bcaf0c885fbd2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+802cdb0f041c7c9ae90f9d93bc8cc49269a5553a")]
 [assembly: System.Reflection.AssemblyProductAttribute("GoldSavings.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GoldSavings.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
