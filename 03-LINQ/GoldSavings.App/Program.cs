@@ -143,8 +143,8 @@ class Program
 
         double returnofinterest = ( (highestprice.Price-cheapestprice.Price)/cheapestprice.Price  )*100;
         
-        Console.WriteLine($"Cheapest price at: {cheapestprice.Price} when : {cheapestprice.Date.ToShortDateString()} ");
-        Console.WriteLine($"Highest price to sell: {highestprice.Price} when : {highestprice.Date.ToShortDateString()}");
+        Console.WriteLine($"Cheapest price at: {cheapestprice.Price}, when : {cheapestprice.Date.ToShortDateString()} ");
+        Console.WriteLine($"Highest price to sell: {highestprice.Price}, when : {highestprice.Date.ToShortDateString()}");
         Console.WriteLine($"Return on Investment : {returnofinterest:F2}%");
 
         #endregion
