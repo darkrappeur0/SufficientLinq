@@ -2,10 +2,20 @@
 using GoldSavings.App.Client;
 using GoldSavings.App.Services;
 using System.Security.AccessControl;
+using System.Xml.Serialization;
 namespace GoldSavings.App;
+
+
+
 
 class Program
 {
+
+    public static List<GoldPrice> LoadFromXml(string filePath) => 
+    File.Exists(filePath) ? (List<GoldPrice>) new XmlSerializer(typeof(List<GoldPrice>)).Deserialize(new StreamReader(filePath)) : new List<GoldPrice>();
+    
+    
+
     static void Main(string[] args)
     {
 
@@ -148,7 +158,30 @@ class Program
         Console.WriteLine($"Return on Investment : {returnofinterest:F2}%");
 
         #endregion
+        string filePath = "./goldsaving.xml";
         Console.WriteLine("\nGold Analyis Queries with LINQ Completed.");
 
+        try
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<GoldPrice>));
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                serializer.Serialize(writer, combinedGoldPricesAll);
+            }
+            Console.WriteLine($"Data successfully saved to {filePath}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error saving to XML: {ex.Message}");
+        }
+        
+
+        var all = LoadFromXml(filePath);
+        Console.WriteLine($"Retrieved {all.Count} records. Ready for analysis.");
+
+
     }
+
+
+
 }
