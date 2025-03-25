@@ -82,7 +82,10 @@ class Program
         Console.WriteLine($"Retrieved {combinedGoldPricesAll.Count} records. Ready for analysis.");
 
         /*
-                Question 2.a
+            Question 2.a
+            it was:
+            (method and query syntax) What are the TOP 3 highest and TOP 3 lowest prices of
+            gold within the last year?
         */
         #region Question 2.a :
 
@@ -96,6 +99,9 @@ class Program
 
         /*
             Question 2.b
+            it was: 
+            If one had bought gold in January 2020, is it possible that they would have earned
+            more than 5%? On which days?
         */ 
         #region Question 2.b
 
@@ -106,6 +112,9 @@ class Program
         
         /*
             Question 2.c
+            it was : 
+            Which 3 dates of 2022-2019 opens the second ten of the prices ranking? (note that
+            the app allows only to get data about the last … days)
         */ 
         #region Question 2.c
 
@@ -121,6 +130,9 @@ class Program
 
         /*
             Question 2.d
+            it was : 
+            (query syntax) What are the averages of gold prices in 2020, 2023, 2024?
+
         */ 
 
         #region Question 2.d
@@ -143,7 +155,12 @@ class Program
         #endregion
 
         /*
-            Question 2.e
+        *    Question 2.e
+        *    it was :
+        *    When it would be best to buy gold and sell it between 2020 and 2024? What would
+        *    be the return on investment?
+        *
+        *
         */ 
         #region Question 2.e
 
@@ -158,6 +175,15 @@ class Program
         Console.WriteLine($"Return on Investment : {returnofinterest:F2}%");
 
         #endregion
+        
+
+        /*
+        *       The next function is to write in an XML file.
+        *       for that we need to give it an .xml file to wrie in.
+        *       the try is here to prevent a crash if we only give him the path to the upper directory ("./")
+        *
+        *
+        */
         string filePath = "./goldsaving.xml";
         Console.WriteLine("\nGold Analyis Queries with LINQ Completed.");
 
@@ -174,7 +200,12 @@ class Program
         {
             Console.WriteLine($"Error saving to XML: {ex.Message}");
         }
-        
+
+        /*
+        *
+        *       The next part is to read inside a .xml file
+        *
+        */
 
         var all = LoadFromXml(filePath);
         Console.WriteLine($"Retrieved {all.Count} records. Ready for analysis.");
