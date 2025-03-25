@@ -10,7 +10,7 @@ Select Prices FROM GoldSavings Order By Prices ASC LIMIT 3;
 
 the first one is to see the 3 highest prices and the last one is to see the 3 lowest prices
 
-For the ...  : 
+For the 2.c  : 
 
-Select Prices From GoldSavings Where date.year < 2019 AND date.year >2024 
+Select Prices From GoldSavings Where date.year > 2019 AND date.year <2024 
 Order By Prices DESC LIMIT 3 OFFSET 10;
